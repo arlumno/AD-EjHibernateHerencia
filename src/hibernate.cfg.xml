@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <!--<property name="connection.url">jdbc:mysql://localhost:3307/LibrosAutoresHibernate?serverTimezone=UTC</property>-->
-    <property name="connection.url">jdbc:mysql://localhost:3307/LibrosAutoresHibernate</property>
-    <property name="connection.username">root</property>
-    <property name="connection.password">usbw</property>
-    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hbm2ddl.auto">update</property>
-<!--    
-    <property name="hbm2ddl.auto">create</property>
-    <property name="hbm2ddl.auto">create-drop</property> 
-    <property name="hbm2ddl.auto">validate</property>
-    -->
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--
+        <property name="connection.url">jdbc:mysql://localhost:3307/empresa</property>
+        -->
+        <property name="connection.url">jdbc:mysql://localhost:3307/empresa?serverTimezone=UTC</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">usbw</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.show_sql">true</property>
+        
+        
+        <property name="hbm2ddl.auto">create</property>
+        <!--    
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create-drop</property> 
+        <property name="hbm2ddl.auto">validate</property>
+        -->
 
-    <mapping class="ad.ejhibernatelibreria.Autor" />
-    <mapping class="ad.ejhibernatelibreria.Libro" />
-    <mapping class="ad.ejhibernatelibreria.Telefono" />
-
-  </session-factory>
+        <mapping class="ad.ejhibernateherencia.Empresa" />
+        <mapping class="ad.ejhibernateherencia.Empleado" />
+        <mapping class="ad.ejhibernateherencia.Fijo" />
+        <mapping class="ad.ejhibernateherencia.Producto" />
+        <mapping class="ad.ejhibernateherencia.Temporal" />
+        <mapping class="ad.ejhibernateherencia.Venta" />
+        
+    </session-factory>
 </hibernate-configuration>

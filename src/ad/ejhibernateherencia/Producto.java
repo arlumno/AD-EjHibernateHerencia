@@ -4,14 +4,23 @@
  */
 package ad.ejhibernateherencia;
 
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+
 /**
  *
  * @author a20armandocb
  */
+@Entity
+@Table(name = "productos")
 public class Producto {
-
+    
+    @Id
     String codigo;
+    
     int stockActualAlmacen;
+    
     final int stockMinimo = 30;
     float precioUnidad;
 

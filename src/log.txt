@@ -1,0 +1,15 @@
+[20-02-2022 15:57:02] Iniciado el programa
+[20-02-2022 15:57:08] finalizado el programa
+[20-02-2022 17:15:06] Iniciado el programa
+[20-02-2022 17:15:14] finalizado el programa
+[20-02-2022 17:15:57] Iniciado el programa
+[20-02-2022 17:16:03] finalizado el programa
+[20-02-2022 17:26:38] Iniciado el programa
+[20-02-2022 17:27:55] finalizado el programa
+[20-02-2022 17:27:58] Iniciado el programa
+[20-02-2022 17:28:44] finalizado el programa
+[20-02-2022 17:28:46] Iniciado el programa
+[20-02-2022 17:30:07] Iniciado el programa
+[20-02-2022 17:35:43] finalizado el programa
+[20-02-2022 17:35:45] finalizado el programa
+[20-02-2022 17:35:47] Iniciado el programa

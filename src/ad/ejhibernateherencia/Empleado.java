@@ -4,13 +4,20 @@
  */
 package ad.ejhibernateherencia;
 
+import javax.persistence.*;
+
 /**
  *
  * @author a20armandocb
  */
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Empleado {
+    
     @Id
     private String dni;
+    
     private String nombre;
     private String telefono;
     private float porcentRetencion;
@@ -56,6 +63,11 @@ public abstract class Empleado {
 
     public void setSueldo(float sueldo) {
         this.sueldo = sueldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "dni=" + dni + ", nombre=" + nombre + ", telefono=" + telefono + ", porcentRetencion=" + porcentRetencion + ", sueldo=" + sueldo + '}';
     }
     
     

@@ -4,10 +4,15 @@
  */
 package ad.ejhibernateherencia;
 
+import javax.persistence.*;
+
 /**
  *
  * @author a20armandocb
  */
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@PrimaryKeyJoinColumn(name = "dni")
 public class Fijo extends Empleado{
     int salarioBase;
     int trienios;
