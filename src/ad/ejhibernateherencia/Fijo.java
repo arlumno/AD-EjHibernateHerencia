@@ -17,9 +17,24 @@ public class Fijo extends Empleado{
     int salarioBase;
     int trienios;
 
+    public Fijo() {
+    }
+
+    
+    public Fijo(int salarioBase, int trienios, String dni, String nombre, String telefono, float porcentRetencion, float sueldo, Empresa empresa) {
+        super(dni, nombre, telefono, porcentRetencion, sueldo, empresa);
+        this.salarioBase = salarioBase;
+        this.trienios = trienios;
+    }
+
     @Override
     public void calculoNomina() {
         setSueldo((salarioBase + trienios) - (salarioBase+trienios) * getPorcentRetencion());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n |--> Fijo{" + "salarioBase=" + salarioBase + ", trienios=" + trienios + '}';
     }
     
    

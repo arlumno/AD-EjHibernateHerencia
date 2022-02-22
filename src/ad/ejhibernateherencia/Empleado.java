@@ -22,9 +22,29 @@ public abstract class Empleado {
     private String telefono;
     private float porcentRetencion;
     private float sueldo;
-            
+    
+    @ManyToOne(
+            cascade = {CascadeType.ALL},
+            fetch = FetchType.EAGER)    
+    @JoinColumn(name = "cifEmpresa")
+    private Empresa empresa;
+    
     public abstract void calculoNomina();
 
+    public Empleado() {
+    }
+
+    public Empleado(String dni, String nombre, String telefono, float porcentRetencion, float sueldo, Empresa empresa) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.porcentRetencion = porcentRetencion;
+        this.sueldo = sueldo;
+        this.empresa = empresa;
+    }
+
+   
+    
     public String getDni() {
         return dni;
     }
@@ -67,7 +87,7 @@ public abstract class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "dni=" + dni + ", nombre=" + nombre + ", telefono=" + telefono + ", porcentRetencion=" + porcentRetencion + ", sueldo=" + sueldo + '}';
+        return "\n --- Empleado{" + "dni=" + dni + ", nombre=" + nombre + ", telefono=" + telefono + ", porcentRetencion=" + porcentRetencion + ", sueldo=" + sueldo + '}';
     }
     
     

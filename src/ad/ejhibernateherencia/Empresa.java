@@ -4,7 +4,7 @@
  */
 package ad.ejhibernateherencia;
 
-import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -25,8 +25,23 @@ public class Empresa{
     String nombre;
     String direccion;
     String telefono;
-//    Set<Producto> productos =  new HashSet();
-//    Set<Empleado> empleados =  new HashSet();
+    
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "empresa",
+            fetch = FetchType.LAZY   
+    )            
+    Set<Producto> productos =  new HashSet();
+    
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            mappedBy = "empresa",
+            fetch = FetchType.LAZY   
+    )
+    Set<Empleado> empleados =  new HashSet();
+
+    public Empresa() {
+    }     
 
     public Empresa(String cif, String nombre, String direccion, String telefono) {
         this.cif = cif;
@@ -84,4 +99,9 @@ public class Empresa{
 //        this.empleados = empleados;
 //    }
 
+    @Override
+    public String toString() {
+        return "Empresa{" + "cif=" + cif + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", productos=" + productos + ", empleados=" + empleados + '}';
+    }
+    
 }

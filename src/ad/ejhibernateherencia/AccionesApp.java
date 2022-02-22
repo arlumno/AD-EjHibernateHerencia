@@ -4,10 +4,9 @@
  */
 package ad.ejhibernateherencia;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
-import peticiones.EntradasGui;
 
 /**
  *
@@ -176,11 +175,28 @@ public class AccionesApp {
     }
 
     void altaEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Empresa empCargada1 = ConexionHibernateSF.getSession().get(Empresa.class, "C123456");
+        Temporal empT1 = new Temporal(LocalDate.parse("2022-02-22"), LocalDate.parse("2022-02-27"), 4F, 45F,"53170624Y","Armando","123456",12F,322F,empCargada1);           
+        Fijo empF1 = new Fijo(1200, 150, "3603769N", "Pedro", "123 456 789", 10F, 1300F, empCargada1);
+        Venta venta1 =  new Venta(LocalDate.parse("2022-02-23"), LocalTime.parse("11:33"), "AADS", 2, 232F, empT1);
+        Venta venta2 =  new Venta(LocalDate.parse("2022-02-24"), LocalTime.parse("12:23"), "jlpll", 11, 192F, empT1);
+        empT1.guardarVenta(venta1);
+        empT1.guardarVenta(venta2);
+        
+        ConexionHibernateSF.beginTransaction();
+        ConexionHibernateSF.save(empT1);        
+        ConexionHibernateSF.save(empF1);        
+        ConexionHibernateSF.commitAndClose();
     }
 
     void altaProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Empresa empCargada1 = ConexionHibernateSF.getSession().get(Empresa.class, "C123456");
+        Producto pr1 = new Producto("aads", 15,empCargada1, 233F);
+        
+        ConexionHibernateSF.beginTransaction();
+        ConexionHibernateSF.save(pr1);
+        ConexionHibernateSF.commitAndClose();
+        
     }
 
     void altaVenta() {
@@ -200,7 +216,20 @@ public class AccionesApp {
     }
 
     void listarEmpresas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Empresa empCargada1 = ConexionHibernateSF.getSession().get(Empresa.class, "C123456");
+        List<Empresa> empresas = ConexionHibernateSF.getSession().createQuery("SELECT b FROM Empresa b", Empresa.class).list();
+         if (!empresas.isEmpty()) {
+             System.out.println("Numero de empresas: " + empresas.size());
+            for (Empresa empresa : empresas) {
+                System.out.println("---------------------");
+                System.out.println("---------------------\n" + empresa.toString() + "\n---------------------");
+                System.out.println("---------------------");
+            }
+        } else {
+            System.out.println("No hay empresas");
+        }
+        ConexionHibernateSF.close();
+
     }
 
     void listarProductos() {

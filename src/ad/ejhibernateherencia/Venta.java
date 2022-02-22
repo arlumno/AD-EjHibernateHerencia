@@ -4,10 +4,9 @@
  */
 package ad.ejhibernateherencia;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalTime;
 import javax.persistence.*;
 
 /**
@@ -16,30 +15,45 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Ventas")
-public class Venta {
-
+public class Venta implements Serializable{
+   
     @Id
-    @GeneratedValue
-    private Long id;
-
     LocalDate fechaVenta;
-    LocalDateTime hora;
+    
+    @Id   
+    LocalTime hora;
+    
+    @Id
     String codigoArticulo;
+    
     int numeroUnidades;
     float importe;
-
-     @ManyToMany(
+    
+    @Id
+    @ManyToOne(
             cascade = {CascadeType.ALL},
-            mappedBy = "ventas", //nombre de la variable en el otro pojo
-            fetch = FetchType.EAGER)
-    private Set<Temporal> temporales = new HashSet();
-     
-    public Long getId() {
-        return id;
+            fetch = FetchType.EAGER)    
+    @JoinColumn(name = "idEmpleadoTemporal")
+    private Temporal temporal;
+
+    public Venta() {
+    }
+   
+    public Venta(LocalDate fechaVenta, LocalTime hora, String codigoArticulo, int numeroUnidades, float importe, ad.ejhibernateherencia.Temporal temporal) {
+        this.fechaVenta = fechaVenta;
+        this.hora = hora;
+        this.codigoArticulo = codigoArticulo;
+        this.numeroUnidades = numeroUnidades;
+        this.importe = importe;
+        this.temporal = temporal;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "\n ---  ---- Venta{" + "fechaVenta=" + fechaVenta + ", hora=" + hora + ", codigoArticulo=" + codigoArticulo + ", numeroUnidades=" + numeroUnidades + ", importe=" + importe +'}';
     }
-
+    
+    
+   
+    
 }

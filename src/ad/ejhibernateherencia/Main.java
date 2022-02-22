@@ -4,11 +4,7 @@
  */
 package ad.ejhibernateherencia;
 
-import java.util.Scanner;
 import menu.Menu;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import utilidades.Log;
 
 /**
