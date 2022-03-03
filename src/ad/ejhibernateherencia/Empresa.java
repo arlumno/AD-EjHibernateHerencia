@@ -83,25 +83,26 @@ public class Empresa{
         this.telefono = telefono;
     }
 
-//    public Set<Producto> getProductos() {
-//        return productos;
-//    }
-//
-//    public void setProductos(Set<Producto> productos) {
-//        this.productos = productos;
-//    }
-//
-//    public Set<Empleado> getEmpleados() {
-//        return empleados;
-//    }
-//
-//    public void setEmpleados(Set<Empleado> empleados) {
-//        this.empleados = empleados;
-//    }
+    public Set<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(Set<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public Set<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(Set<Empleado> empleados) {
+        this.empleados = empleados;
+    }
 
     @Override
     public String toString() {
-        return "Empresa{" + "cif=" + cif + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", productos=" + productos + ", empleados=" + empleados + '}';
+        return "Empresa{" + "cif=" + cif + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+//        return "Empresa{" + "cif=" + cif + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", productos=" + productos + ", empleados=" + empleados + '}';
     }
     
 }

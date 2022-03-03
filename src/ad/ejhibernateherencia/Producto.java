@@ -18,6 +18,7 @@ public class Producto {
     
     @Id
     String codigo;
+    
     int stockActualAlmacen;
     
     @ManyToOne(

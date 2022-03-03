@@ -62,7 +62,7 @@ public class Temporal extends Empleado {
 
     @Override
     public String toString() {
-        return super.toString() + "\n |--> Temporal - fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", suplemento=" + suplemento + ", pagoDia=" + pagoDia + ", ventas=" + ventas + '}';
+        return super.toString() + "\n |--> Temporal - fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", suplemento=" + suplemento + ", pagoDia=" + pagoDia + '}';
     }
     
 }

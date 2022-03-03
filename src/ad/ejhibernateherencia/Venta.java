@@ -15,34 +15,38 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Ventas")
-public class Venta implements Serializable{
-   
+public class Venta implements Serializable {
+
     @Id
     LocalDate fechaVenta;
-    
-    @Id   
-    LocalTime hora;
-    
+
     @Id
-    String codigoArticulo;
-    
-    int numeroUnidades;
-    float importe;
-    
+    LocalTime hora;
+
     @Id
     @ManyToOne(
             cascade = {CascadeType.ALL},
-            fetch = FetchType.EAGER)    
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "idProducto")
+    Producto producto;
+
+    int numeroUnidades;
+    float importe;
+
+    @Id
+    @ManyToOne(
+            cascade = {CascadeType.ALL},
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "idEmpleadoTemporal")
     private Temporal temporal;
 
     public Venta() {
     }
-   
-    public Venta(LocalDate fechaVenta, LocalTime hora, String codigoArticulo, int numeroUnidades, float importe, ad.ejhibernateherencia.Temporal temporal) {
+
+    public Venta(LocalDate fechaVenta, LocalTime hora, Producto producto, int numeroUnidades, float importe, ad.ejhibernateherencia.Temporal temporal) {
         this.fechaVenta = fechaVenta;
         this.hora = hora;
-        this.codigoArticulo = codigoArticulo;
+        this.producto = producto;
         this.numeroUnidades = numeroUnidades;
         this.importe = importe;
         this.temporal = temporal;
@@ -50,10 +54,8 @@ public class Venta implements Serializable{
 
     @Override
     public String toString() {
-        return "\n ---  ---- Venta{" + "fechaVenta=" + fechaVenta + ", hora=" + hora + ", codigoArticulo=" + codigoArticulo + ", numeroUnidades=" + numeroUnidades + ", importe=" + importe +'}';
+        return "Venta{" + "fechaVenta=" + fechaVenta + ", hora=" + hora + ", producto=" + producto + ", numeroUnidades=" + numeroUnidades + ", importe=" + importe + '}';
     }
-    
-    
-   
-    
+
+
 }
