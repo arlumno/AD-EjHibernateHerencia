@@ -4,6 +4,7 @@
  */
 package ad.ejhibernateherencia;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -13,7 +14,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Empleado {
+public abstract class Empleado implements Serializable {
     
     @Id
     private String dni;
@@ -23,7 +24,7 @@ public abstract class Empleado {
     private float porcentRetencion;
     private float sueldo;
     
-    @ManyToOne(
+    @ManyToOne( 
 //            cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)    
     @JoinColumn(name = "cifEmpresa")

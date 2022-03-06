@@ -46,6 +46,38 @@ public class Producto {
         return "\n --- Producto{" + "codigo=" + codigo + ", stockActualAlmacen=" + stockActualAlmacen + ", empresa=" + empresa.nombre + ", stockMinimo=" + stockMinimo + ", precioUnidad=" + precioUnidad + '}';
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getStockActualAlmacen() {
+        return stockActualAlmacen;
+    }
+
+    public void setStockActualAlmacen(int stockActualAlmacen) {
+        this.stockActualAlmacen = stockActualAlmacen;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public float getPrecioUnidad() {
+        return precioUnidad;
+    }
+
+    public void setPrecioUnidad(float precioUnidad) {
+        this.precioUnidad = precioUnidad;
+    }
+
    
    
     
