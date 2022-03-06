@@ -34,7 +34,7 @@ public class Empresa{
     Set<Producto> productos =  new HashSet();
     
     @OneToMany(
-            cascade = CascadeType.ALL,
+//            cascade = CascadeType.ALL,
             mappedBy = "empresa",
             fetch = FetchType.LAZY   
     )
@@ -91,13 +91,13 @@ public class Empresa{
         this.productos = productos;
     }
 
-    public Set<Empleado> getEmpleados() {
-        return empleados;
-    }
-
-    public void setEmpleados(Set<Empleado> empleados) {
-        this.empleados = empleados;
-    }
+//    public Set<Empleado> getEmpleados() {
+//        return empleados;
+//    }
+//
+//    public void setEmpleados(Set<Empleado> empleados) {
+//        this.empleados = empleados;
+//    }
 
     @Override
     public String toString() {

@@ -204,6 +204,7 @@ public class AccionesApp {
             System.out.println(empF1.toString());
             System.out.println(empF2.toString());
         }
+        ConexionHibernateSF.close();
     }
 
     void altaProducto() {
@@ -224,7 +225,7 @@ public class AccionesApp {
             System.out.println(pr1.toString());
             System.out.println(pr2.toString());
         }
-
+        ConexionHibernateSF.close();
     }
 
     void altaVenta() {
@@ -242,7 +243,6 @@ public class AccionesApp {
 
 //                empT1.guardarVenta(venta1);
 //                empT1.guardarVenta(venta2);
-
                 ConexionHibernateSF.beginTransaction();
                 ConexionHibernateSF.save(venta1);
                 ConexionHibernateSF.save(venta2);
@@ -254,10 +254,33 @@ public class AccionesApp {
 
             }
         }
+        ConexionHibernateSF.close();
     }
 
     void bajaEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Empleado empTemporal = ConexionHibernateSF.getSession().get(Empleado.class, "53170624Y");
+        Empleado empFijo = ConexionHibernateSF.getSession().get(Empleado.class, "3603769N");
+//        Fijo emp = ConexionHibernateSF.getSession().get(Fijo.class, "3603769N");
+        String error = "No se ha podido encontrar ningún empleado con el dni 53170624Y";
+        if (objetoIsNotNull(empTemporal, error)) {
+            ConexionHibernateSF.beginTransaction();
+            
+            ConexionHibernateSF.getSession().delete(empTemporal);
+            ConexionHibernateSF.commitAndClose();
+            System.out.println("Eliminado empleado:");
+            System.out.println(empTemporal.toString());
+
+        }
+        error = "No se ha podido encontrar ningún empleado con el dni 3603769N";
+        if (objetoIsNotNull(empFijo, error)) {
+            ConexionHibernateSF.beginTransaction();
+            ConexionHibernateSF.getSession().delete(empFijo);
+            ConexionHibernateSF.commitAndClose();
+            System.out.println("Eliminado empleado:");
+            System.out.println(empFijo.toString());
+
+        }
+        ConexionHibernateSF.close();
     }
 
     void modProducto() {

@@ -26,7 +26,7 @@ public class Venta implements Serializable {
     @Id
     @ManyToOne(
             cascade = {CascadeType.ALL},
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     @JoinColumn(name = "idProducto")
     Producto producto;
 

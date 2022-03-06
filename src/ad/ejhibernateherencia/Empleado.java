@@ -24,7 +24,7 @@ public abstract class Empleado {
     private float sueldo;
     
     @ManyToOne(
-            cascade = {CascadeType.ALL},
+//            cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)    
     @JoinColumn(name = "cifEmpresa")
     private Empresa empresa;

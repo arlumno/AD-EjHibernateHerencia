@@ -23,11 +23,11 @@ public class Temporal extends Empleado {
     float suplemento;
     float pagoDia;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            mappedBy = "temporal",
-            fetch = FetchType.LAZY
-    )
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            mappedBy = "temporal",
+//            fetch = FetchType.LAZY
+//    )
 //    @JoinTable(
 //            name = "VentasTemporal",
 //            joinColumns = {
@@ -35,8 +35,7 @@ public class Temporal extends Empleado {
 //            inverseJoinColumns = {
 //                @JoinColumn(name = "id")}
 //    )
-
-    Set<Venta> ventas = new HashSet();
+//    Set<Venta> ventas = new HashSet();
 
     public Temporal() {
     }
@@ -50,9 +49,9 @@ public class Temporal extends Empleado {
         this.pagoDia = pagoDia;
     }
 
-    public void guardarVenta(Venta venta) {
-        ventas.add(venta);
-    }
+//    public void guardarVenta(Venta venta) {
+//        ventas.add(venta);
+//    }
 
     @Override
     public void calculoNomina() {

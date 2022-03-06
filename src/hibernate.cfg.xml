@@ -24,9 +24,9 @@
 
         <mapping class="ad.ejhibernateherencia.Empresa" />
         <mapping class="ad.ejhibernateherencia.Empleado" />
+        <mapping class="ad.ejhibernateherencia.Temporal" />
         <mapping class="ad.ejhibernateherencia.Fijo" />
         <mapping class="ad.ejhibernateherencia.Producto" />
-        <mapping class="ad.ejhibernateherencia.Temporal" />
         <mapping class="ad.ejhibernateherencia.Venta" />
         
     </session-factory>
