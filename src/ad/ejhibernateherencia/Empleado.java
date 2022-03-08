@@ -71,7 +71,7 @@ public abstract class Empleado implements Serializable {
     }
 
     public float getPorcentRetencion() {
-        return porcentRetencion;
+        return porcentRetencion /100;
     }
 
     public void setPorcentRetencion(float porcentRetencion) {

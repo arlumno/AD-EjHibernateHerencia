@@ -27,7 +27,7 @@ public class Empresa{
     String telefono;
     
     @OneToMany(
-            cascade = CascadeType.ALL,
+ //           cascade = CascadeType.ALL,
             mappedBy = "empresa",
             fetch = FetchType.LAZY   
     )            

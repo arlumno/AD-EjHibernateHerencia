@@ -5,6 +5,8 @@
 package ad.ejhibernateherencia;
 
 import menu.Menu;
+import peticiones.EntradasGui;
+import textos.SalidasGui;
 import utilidades.Log;
 
 /**
@@ -20,9 +22,9 @@ public class Main {
 
     public static void main(String[] args) {
         boolean continuar = true;
-
+        peticiones.SalidasGui.mensaje("Importante:\n Realizar la acciones de creacion en orden para comprobar el funcionamiento.");
         Menu menu = construirMenuPrincipal();
-
+        
         do {
             try {
                 continuar = menuAcciones(menu);
@@ -37,6 +39,13 @@ public class Main {
         Menu menu = new Menu();
         AccionesApp app = new AccionesApp();
 
+        /*pruebas*/
+        app.altaEmpresa();
+        app.altaEmpleado();
+        app.altaProducto();
+        app.altaVenta();
+        
+        /*fin pruebas*/
         menu.setTituloMenu("Menu Ej. Hibernate");
         menu.setTextoSalir("salir");
         log.addToLog("Iniciado el programa");

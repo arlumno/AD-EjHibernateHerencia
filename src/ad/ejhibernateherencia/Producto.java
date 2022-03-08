@@ -22,8 +22,8 @@ public class Producto {
     int stockActualAlmacen;
     
     @ManyToOne(
-            cascade = {CascadeType.ALL},
-            fetch = FetchType.EAGER)    
+  //          cascade = {CascadeType.ALL},
+            fetch = FetchType.LAZY)    
     @JoinColumn(name = "cifEmpresa")
     private Empresa empresa;
     

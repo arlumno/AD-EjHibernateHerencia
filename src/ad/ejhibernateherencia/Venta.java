@@ -24,8 +24,9 @@ public class Venta implements Serializable {
     LocalTime hora;
 
     @Id
+//    @ManyToOne
     @ManyToOne(
-            cascade = {CascadeType.ALL},
+  //          cascade = {CascadeType.ALL},
             fetch = FetchType.LAZY)
     @JoinColumn(name = "idProducto")
     Producto producto;
@@ -34,9 +35,10 @@ public class Venta implements Serializable {
     float importe;
 
     @Id
-    @ManyToOne(
-            cascade = {CascadeType.ALL},
-            fetch = FetchType.EAGER)
+    @ManyToOne
+//    @ManyToOne(
+//            cascade = {CascadeType.ALL},
+//            fetch = FetchType.LAZY)
     @JoinColumn(name = "idEmpleadoTemporal")
     private Temporal temporal;
 
@@ -56,6 +58,14 @@ public class Venta implements Serializable {
     public String toString() {
         return "Venta{" + "fechaVenta=" + fechaVenta + ", hora=" + hora + ", producto=" + producto + ", numeroUnidades=" + numeroUnidades + ", importe=" + importe + '}';
     }
-
-
+    
+	public LocalDate getFechaVenta() {
+		return fechaVenta;
+	}
+	
+	public float getImporte() {
+		return importe;
+	}
+	
+	
 }
